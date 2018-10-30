@@ -17,55 +17,39 @@
 </p>
 <p>
     Then each person in the group will roll a virtual die on the computer screen. The person who rolls the largest number
-    will receive the High Outcome from the matched group; the person who rolls the medium number will receive the Medium
-    Outcome; the person who rolls the smallest number will receive the Low Outcome. Ties are broken by flipping a virtual f
-    air coin. Your Matched Income is <strong>150 ECUs </strong> times the Outcome you got from the matched group.
+    will receive the highest Outcome from the matched group; the second largest number will receive the second highest Outcome;
+    the third largest number will receive the third highest Outcome; the smallest number will receive the lowest Outcome.
+    Ties are broken by flipping a virtual fair coin. Your Preliminary Gains is <strong>150 ECUs </strong>>times the Outcome you got from the matched group.
 </p>
 <p>
-    After you roll the virtual die but before the results are announced, you will predict your position among the 3 members
-    of your group: whether you are in the 1st, the 2nd or the 3rd place. Correct prediction will be rewarded <strong>100 ECUs</strong>.
-    This is your Round Prediction Income.
+    At the end of each round, once you have received information concerning your Preliminary Gains, you will be asked to declare these gains. This is your Declared Gains. In this Module <strong>10%</strong> of these Declared Gains will then be deducted from your Preliminary Gains.
+
 </p>
 <p>
-    Before the first round of this Module, we will also ask you to predict your total Matched Income from all rounds of
-    this Module: whether you will be in the top third, middle third or bottom third. Correct prediction will be rewarded
-    <storng>100 ECUs</storng>. This is your Module Prediction Income.
+    In each round there is a certain probability that your Declared Gains will be compared with your actual Preliminary Gains in order to verify these two amounts correspond. In this Module this probability is <strong>0%</strong>.
+
 </p>
 <p>
-    In the SECOND part, you will earn a small additional payoff. This payoff may not be the same for every participant.
-    You determine your payoff by throwing a die twice when you are asked to. Your first throw decides how much you earn.
-    This is called your Dice Income. Payoffs are on the following chart. You can use this chart for your reference.
-    The second throw only serves to make sure that the die is working properly. You may, of course, throw the die more
-    than twice. <u>However, ONLY the first throw counts.</u>
+    If this verification finds a discrepancy between the Preliminary and Declared gains an extra amount will be taken away from your Preliminary Gains. In this Module this amount will correspond to <strong>50%</strong> of the observed discrepancy. In addition, the regular deduction of <strong>10%</strong> will apply to the Preliminary Gains and not to the declared amount.
 </p>
 <br>
-
-<table border="1">
-  <tr>
-    <th>Number Thrown</th>
-      {% for number in Constants.thrown %}
-        <th>{{number}}</th>
-      {% endfor %}
-  </tr>
-  <tr>
-    <td>Resulting Payoff</td>
-      {% for reward in Constants.reward %}
-        <td>{{reward}}</td>
-      {% endfor %}
-  </tr>
-</table>
-<br>
-
+<p>
+    Deductions from all four group members’ Preliminary Gains will then be pooled and equally distributed amongst those members. The amount you receive here is called the Group Amount.
+</p>
 <p>
     Your profits for each round in this Module are calculated in the following manner:
     <br>
     <strong>
-        Profit = Matched Income + Module Prediction Income + Round Prediction Income + Dice Income
+       Profit = Preliminary Gains – Deductions from the Declared Gains – Potential Deductions due to Discrepancy + Group amount
     </strong>
 </p>
 <p>
     Finally, one round in this Module will be chosen at random, and your earnings for this Module will be based on your
-    profits of that round at the exchange rate <strong>500 ECUs = 1 £</strong>.
+    profits of that round at the exchange rate <strong>300 ECUs = 1 £</strong>.
+</p>
+<br>
+<p>
+    You will be informed of your earnings for this Module at the end of the experiment.
 </p>
 
     {% next_button %}

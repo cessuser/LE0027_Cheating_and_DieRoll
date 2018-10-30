@@ -7,10 +7,16 @@
 
 {% block content %}
 <p>
-    You are the {{ player.matched_level }} place in your group.
-    Your matched payoff is  {{ player.matched_payoff }}.
+    Your preliminary gain is  {{ player.matched_payoff }} ECUs.
+<br>
+    <br>
+    Please Declare your gain:
+<table>
+    <th>{{ form.declare_gain }}</th>
+    <th>ECUs</th></table>
 </p>
-    {% next_button %}
+
+{% next_button %}
 {% endblock %}
 
 

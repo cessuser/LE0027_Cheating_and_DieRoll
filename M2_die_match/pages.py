@@ -9,16 +9,6 @@ class Introduction(Page):
         return self.round_number == 1
 
 
-class RoundPred(Page):
-    form_fields = ['roundPred']
-    form_model = models.Player
-
-    def vars_for_template(self):
-        return {
-        'round_num': self.round_number
-        }
-
-
 class DiceRolling(Page):
     def vars_for_template(self):
         return {
@@ -33,13 +23,6 @@ class DiceRolling2(Page):
             'round_num': self.round_number
         }
 
-
-class ModelPred(Page):
-    form_model = models.Player
-    form_fields = ['modelPred']
-
-    def is_displayed(self):
-        return self.round_number == 1
 
 
 class GroupWaitPage(WaitPage):
@@ -57,7 +40,6 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     def vars_for_template(self):
         self.player.set_final_payoff()
-        self.group.set_modelPred()
 
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
@@ -78,18 +60,19 @@ class RealDiceRolling(Page):
 
 
 class MatchedOutcome(Page):
-    pass
+    form_fields = ['declare_gain']
+    form_model = models.Player
+
+    def before_next_page(self):
+        self.participant.vars['all_declare_gain'].append(self.player.declare_gain)
 
 
 page_sequence = [
     Introduction,
-    ModelPred,
-    RoundPred,
     DiceRolling,
     DiceRolling2,
     GroupWaitPage,
     MatchedOutcome,
-    RealDiceRolling,
     ResultsWaitPage,
     Results
 

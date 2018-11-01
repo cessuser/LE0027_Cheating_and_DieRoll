@@ -16,7 +16,7 @@ match with previous 3 players and multiply 150 ECUs with the outcome
 class Constants(BaseConstants):
     name_in_url = 'M3_die_match_progressive'
     players_per_group = 3
-    num_rounds = 1
+    num_rounds = 10
     thrown = [1,2,3,4,5,6]
     reward = [c(100),c(200),c(300),c(400),c(500),c(600)]
     file_location1 = "_static/data/170711_1143.xlsx"
@@ -28,7 +28,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-
+        self.group_randomly()
         if self.round_number == 1:
             workbook1 = xlrd.open_workbook(Constants.file_location1)
             workbook2 = xlrd.open_workbook(Constants.file_location2)
@@ -81,8 +81,6 @@ class Group(BaseGroup):
 
     def set_groupAmount(self, round):
         tot = sum([p.participant.vars['all_declare_gain'][round-1] for p in self.get_players()])
-        print('set group amount: ', self.get_players())
-
         return tot/Constants.players_per_group
 
     def set_payoff(self):
@@ -118,13 +116,12 @@ class Group(BaseGroup):
         player_sorted[1].matched_level = '2nd'  # medium
         player_sorted[2].matched_level = '1st'  # high
 
-        player_sorted[0].matched_payoff = 150*cur_group[0] #low
-        player_sorted[1].matched_payoff = 150*cur_group[1] #medium
-        player_sorted[2].matched_payoff = 150*cur_group[2] #high
+        for i in range(0,Constants.players_per_group):
+            cur_player = player_sorted[i]
+            cur_player.matched_payoff = 150 * cur_group[i]
+            cur_player.participant.vars['matched_outcomes'].append(cur_player.matched_payoff)
 
-        player_sorted[0].participant.vars['matched_outcomes'].append(player_sorted[0].matched_payoff)
-        player_sorted[1].participant.vars['matched_outcomes'].append(player_sorted[1].matched_payoff)
-        player_sorted[2].participant.vars['matched_outcomes'].append(player_sorted[2].matched_payoff)
+
 
         print([[p, p.payoff, p.real_die_value] for p in player_sorted])
 
@@ -139,8 +136,6 @@ class Player(BasePlayer):
 
     declare_gain = models.IntegerField()
 
-
-
     def roll_die(self):
         self.real_die_value = self.participant.vars['dices'][self.round_number-1]
         print(self.real_die_value)
@@ -149,6 +144,5 @@ class Player(BasePlayer):
         self.chosen_round = random.randint(1, Constants.num_rounds)
         groupAmount = self.group.set_groupAmount(self.chosen_round)
         self.payoff = c(self.participant.vars['matched_outcomes'][self.chosen_round-1] - self.participant.vars['all_declare_gain'][self.chosen_round-1]*0.1 + groupAmount)
-        self.participant.vars['chosen_round_m2'] = self.chosen_round
         self.participant.vars['m2_payoff'] = self.payoff
         print("set final: ", self.matched_level, self.payoff, self.participant.vars['matched_outcomes'] )

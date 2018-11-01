@@ -18,8 +18,9 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        self.group_randomly()
         if self.round_number == 1:
-            nums1 = [81, 100, 55, 97, 83, 47, 26, 24, 49, 36, 26, 72, 29, 24, 15, 97, 12, 96, 43, 77, 49, 64, 76, 39, 57, 78, 58, 88, 83, 40]
+            nums1 = [87, 17, 41, 92, 71, 15, 42, 70, 81, 77, 74, 81, 62, 60, 14, 29, 22, 71, 11, 95, 92, 99, 50, 89, 44, 90, 74, 37, 22, 52]
             nums2 = [81, 56, 83, 99, 39, 79, 30, 38, 51, 90, 29, 41, 21, 36, 92, 33, 60, 13, 57, 69, 10, 83, 38, 17, 10, 36, 76, 51, 60, 18]
             for p in self.get_players():
                 p.participant.vars['nums1'] = nums1
@@ -33,21 +34,18 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def set_payoff(self):
-        player_sorted = [[p, p.participant.vars['n_correct3_M5'], p.roundPred] for p in self.get_players()]
+        player_sorted = [[p, p.participant.vars['n_correct3_M5']] for p in self.get_players()]
         player_sorted = sorted(player_sorted, key=lambda x:x[1])
 
-        for p in self.get_players():
-            p.payoff = 0
-        if player_sorted[0][0].roundPred == 3:
-            player_sorted[0][0].payoff += 100
-        if player_sorted[1][0].roundPred == 2:
-            player_sorted[1][0].payoff += 100
-        if player_sorted[2][0].roundPred == 1:
-            player_sorted[2][0].payoff += 100
-
         for i in range(0, Constants.players_per_group):
-            player_sorted[i][0].payoff += c(player_sorted[i][1] * 150)
-            player_sorted[i][0].participant.vars['M5_round3Pay'] = player_sorted[i][0].payoff
+            cur_player = player_sorted[i][0]
+            cur_player.payoff = 0
+            cur_player.rank = 3 - i
+            if cur_player.participant.vars['roundPred'] == 3 - i:
+                print("enter player: ", cur_player)
+                cur_player.payoff = 100
+            cur_player.payoff += c(player_sorted[i][1] * 150)
+            cur_player.participant.vars['M5_round3Pay'] = cur_player.payoff
 
 
 class Player(BasePlayer):
@@ -55,6 +53,8 @@ class Player(BasePlayer):
     correct = models.IntegerField() # if correct
     n_correct = models.IntegerField() # number of correct
     roundPred = models.IntegerField(choices=[1, 2, 3], widget=widgets.RadioSelect)
+
+    rank = models.IntegerField()
 
 
     def check_correct(self):
@@ -66,5 +66,7 @@ class Player(BasePlayer):
         else:
             self.correct = 0
         self.n_correct = self.participant.vars['n_correct3_M5']
+
+
 
 

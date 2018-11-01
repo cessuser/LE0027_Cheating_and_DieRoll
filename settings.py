@@ -48,7 +48,37 @@ SESSION_CONFIGS = [
        'display_name': "M4_die_match",
        'num_demo_participants': 3,
        'app_sequence': ['M4_risk_pref'],
-    }
+    },
+    {
+        'name': 'M5_number_task1',
+        'display_name': "M5_number_task1",
+        'num_demo_participants': 3,
+        'app_sequence': ['M5_number_add1'],
+     },
+     {
+        'name': 'M5_number_task2',
+        'display_name': "M5_number_task2",
+        'num_demo_participants': 3,
+        'app_sequence': ['M5_number_add2'],
+     },
+     {
+        'name': 'M5_number_task3',
+        'display_name': "M5_number_task3",
+        'num_demo_participants': 3,
+        'app_sequence': ['M5_number_add3'],
+     },
+     {
+         'name': 'M5_number_task4',
+         'display_name': "M5_number_task4",
+         'num_demo_participants': 3,
+         'app_sequence': ['M5_number_add4'],
+     },
+     {
+         'name': 'M5_number_task5',
+         'display_name': "M5_number_task5",
+         'num_demo_participants': 3,
+         'app_sequence': ['M5_number_add5'],
+     },
 
 ]
 

@@ -28,7 +28,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-
+        self.group_randomly()
         if self.round_number == 1:
             workbook1 = xlrd.open_workbook(Constants.file_location1)
             workbook2 = xlrd.open_workbook(Constants.file_location2)

@@ -52,13 +52,17 @@ class RoundPred(Page):
     form_fields = ['roundPred']
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+        return self.round_number == 1
+
+    def before_next_page(self):
+        self.player.participant.vars['roundPred'] = self.player.roundPred
 
 class ResultWaitPage(WaitPage):
     wait_for_all_groups = True
 
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
+
     def after_all_players_arrive(self):
         pass
 
@@ -80,7 +84,6 @@ page_sequence = [
     Introduction,
     RoundPred,
     TaskPage,
-
     ResultWaitPage,
     Results
 ]

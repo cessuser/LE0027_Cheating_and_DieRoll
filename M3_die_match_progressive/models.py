@@ -149,7 +149,7 @@ class Player(BasePlayer):
             self.participant.vars['matched_outcomes'][self.round_number - 1] = self.matched_payoff
 
     def roll_die(self):
-        self.real_die_value = self.participant.vars['dices'][self.round_number-1]
+        self.real_die_value = random.randint(1,6)
         print(self.real_die_value)
 
     def set_final_payoff(self):

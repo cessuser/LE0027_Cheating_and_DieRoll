@@ -13,72 +13,72 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-       'name': 'cheating_entitlement',
-       'display_name': "Cheating_Entitlement",
-       'num_demo_participants': 6,
-       'app_sequence': ['M1_dictator', 'M2_die_match', 'M3_die_match_progressive','M4_risk_pref','M5_number_add1',
-                        'M5_number_add2', 'M5_number_add3', 'M5_number_add4', 'M5_number_add5', 'LastModel'],
+        'name': 'cheating_entitlement',
+        'display_name': "Cheating_Entitlement",
+        'num_demo_participants': 6,
+        'app_sequence': ['M1_dictator', 'M2_die_match', 'M3_die_match_progressive', 'M4_risk_pref', 'M5_number_add1',
+                         'M5_number_add2', 'M5_number_add3', 'M5_number_add4', 'M5_number_add5', 'LastModel'],
     },
     {
-       'name': 'number_task',
-       'display_name': "number_task",
-       'num_demo_participants': 3,
-       'app_sequence': ['M5_number_add1', 'M5_number_add5', 'LastModel'],
+        'name': 'M1_dictator',
+        'display_name': "M1_dictator",
+        'num_demo_participants': 2,
+        'app_sequence': ['M1_dictator'],
     },
     {
-       'name': 'M1_dictator',
-       'display_name': "M1_dictator",
-       'num_demo_participants': 2,
-       'app_sequence': ['M1_dictator'],
+        'name': 'M2_die_match',
+        'display_name': "M2_die_match",
+        'num_demo_participants': 3,
+        'app_sequence': ['M2_die_match'],
     },
     {
-       'name': 'M2_die_match',
-       'display_name': "M2_die_match",
-       'num_demo_participants': 3,
-       'app_sequence': ['M2_die_match'],
+        'name': 'M3_die_match',
+        'display_name': "M3_die_match",
+        'num_demo_participants': 3,
+        'app_sequence': ['M3_die_match_progressive'],
     },
     {
-       'name': 'M3_die_match',
-       'display_name': "M3_die_match",
-       'num_demo_participants': 3,
-       'app_sequence': ['M3_die_match_progressive'],
-    },
-    {
-       'name': 'M4_die_match',
-       'display_name': "M4_die_match",
-       'num_demo_participants': 3,
-       'app_sequence': ['M4_risk_pref'],
+        'name': 'M4_risk',
+        'display_name': "M4_risk",
+        'num_demo_participants': 3,
+        'app_sequence': ['M4_risk_pref'],
     },
     {
         'name': 'M5_number_task1',
         'display_name': "M5_number_task1",
         'num_demo_participants': 3,
         'app_sequence': ['M5_number_add1'],
-     },
-     {
+    },
+    {
         'name': 'M5_number_task2',
         'display_name': "M5_number_task2",
         'num_demo_participants': 3,
-        'app_sequence': ['M5_number_add2'],
-     },
-     {
+        'app_sequence': ['M5_number_add1', 'M5_number_add2'],
+    },
+    {
         'name': 'M5_number_task3',
         'display_name': "M5_number_task3",
         'num_demo_participants': 3,
-        'app_sequence': ['M5_number_add3'],
-     },
-     {
-         'name': 'M5_number_task4',
-         'display_name': "M5_number_task4",
-         'num_demo_participants': 3,
-         'app_sequence': ['M5_number_add4'],
-     },
-     {
-         'name': 'M5_number_task5',
-         'display_name': "M5_number_task5",
-         'num_demo_participants': 3,
-         'app_sequence': ['M5_number_add5'],
-     },
+        'app_sequence': ['M5_number_add1', 'M5_number_add3'],
+    },
+    {
+        'name': 'M5_number_task4',
+        'display_name': "M5_number_task4",
+        'num_demo_participants': 3,
+        'app_sequence': ['M5_number_add1', 'M5_number_add4'],
+    },
+    {
+        'name': 'M5_number_task5',
+        'display_name': "M5_number_task5",
+        'num_demo_participants': 3,
+        'app_sequence': ['M5_number_add1', 'M5_number_add5'],
+    },
+    {
+        'name': 'M23',
+        'display_name': "M23_test",
+        'num_demo_participants': 3,
+        'app_sequence': ['M2_die_match', 'M3_die_match_progressive'],
+    }
 
 ]
 

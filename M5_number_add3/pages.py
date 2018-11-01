@@ -27,8 +27,8 @@ class TaskPage(Page):
 
     def vars_for_template(self):
         return {
-            'shown_num1': self.player.participant.vars['nums1'][self.round_number - 1],
-            'shown_num2': self.player.participant.vars['nums2'][self.round_number - 1]
+            'shown_num1': Constants.nums1[self.round_number - 1],
+            'shown_num2': Constants.nums2[self.round_number - 1]
         }
 
     def before_next_page(self):
@@ -72,6 +72,7 @@ class Results(Page):
 
     def vars_for_template(self):
         self.group.set_payoff()
+        self.player.modelPred = self.player.participant.vars['M5_modelPred']
         return{
             'n_correct': self.player.participant.vars['n_correct3_M5']
         }

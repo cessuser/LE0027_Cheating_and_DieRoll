@@ -27,8 +27,8 @@ class TaskPage(Page):
 
     def vars_for_template(self):
         return {
-            'shown_num1': self.player.participant.vars['nums1'][self.round_number - 1],
-            'shown_num2': self.player.participant.vars['nums2'][self.round_number - 1]
+            'shown_num1': Constants.nums1[self.round_number - 1],
+            'shown_num2': Constants.nums2[self.round_number - 1]
         }
 
     def before_next_page(self):

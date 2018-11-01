@@ -16,19 +16,23 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 30
 
+    nums1 = [65, 16, 37, 59, 76, 48, 12, 60, 73, 96, 29, 89, 31, 29, 31, 95, 71, 46, 61, 20, 15, 37, 68, 67, 52, 91, 74,
+             52, 47, 44]
+    nums2 = [33, 73, 81, 97, 58, 92, 47, 10, 47, 49, 94, 18, 71, 14, 53, 90, 61, 28, 78, 48, 21, 78, 95, 33, 92, 10, 18,
+             63, 100, 65]
+
 class Subsession(BaseSubsession):
     def creating_session(self):
-        if self.round_number == 1:
-            nums1 = [59, 62, 10, 50, 17, 34, 42, 75, 13, 32, 93, 55, 94, 31, 100, 92, 56, 44, 17, 94, 68, 94, 12, 89, 92, 76, 96, 21, 65, 50]
-            nums2 = [51, 68, 97, 13, 93, 68, 16, 76, 16, 46, 90, 80, 38, 52, 40, 27, 34, 81, 70, 64, 21, 43, 35, 52, 73, 22, 24, 93, 40, 24]
-            for p in self.get_players():
-                p.participant.vars['nums1'] = nums1
-                p.participant.vars['nums2'] = nums2
-                p.participant.vars['ans'] = []
-                for i in range(0,Constants.num_rounds):
-                    p.participant.vars['ans'].append(nums1[i] + nums2[i])
-                p.participant.vars['M5_round1Pay'] = 0
-                p.participant.vars['n_correct1_M5'] = 0
+
+        for p in self.get_players():
+            p.participant.vars['nums1'] = Constants.nums1
+            p.participant.vars['nums2'] = Constants.nums2
+            p.participant.vars['ans'] = []
+            for i in range(0,Constants.num_rounds):
+                p.participant.vars['ans'].append(Constants.nums1[i] + Constants.nums2[i])
+                if self.round_number == 1:
+                    p.participant.vars['M5_round1Pay'] = 0
+                    p.participant.vars['n_correct1_M5'] = 0
 
 
 class Group(BaseGroup):
@@ -61,7 +65,7 @@ class Player(BasePlayer):
     def check_correct(self):
         if self.round_number == 1:
             self.participant.vars['n_correct1_M5'] = 0
-        if self.answer == self.participant.vars['ans'][self.round_number-1]:
+        if self.answer == Constants.nums1[self.round_number-1] + Constants.nums2[self.round_number-1]:
             self.correct = 1
             self.participant.vars['n_correct1_M5'] += 1
         else:

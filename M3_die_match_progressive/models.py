@@ -16,7 +16,7 @@ match with previous 3 players and multiply 150 ECUs with the outcome
 class Constants(BaseConstants):
     name_in_url = 'M2_die_match'
     players_per_group = 3
-    num_rounds = 1
+    num_rounds = 10
     thrown = [1,2,3,4,5,6]
     reward = [c(100),c(200),c(300),c(400),c(500),c(600)]
     file_location1 = "_static/data/170711_1143.xlsx"

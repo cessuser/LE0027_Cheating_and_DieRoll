@@ -30,14 +30,15 @@ class Subsession(BaseSubsession):
             workbook1 = xlrd.open_workbook(Constants.file_location1)
             sheet2 = workbook1.sheet_by_name('Module3')
             x2 = []
+            print("x2: ", x2)
             groups = [[], [], [], [], [], [], [], [], [], []]
             for value in sheet2.col_values(9):
                 if isinstance(value, float):
                     x2.append(int(value))
             index = 0
             while index < len(x2):
-                groups[int(index / 24)].append(sorted([x2[index], x2[index + 1], x2[index + 2], x2[index + 3]]))
-                index += 3
+                groups[int(index / 48)].append(sorted([x2[index], x2[index + 1], x2[index + 2], x2[index + 3]]))
+                index += 4
 
             for p in self.get_players():
                 p.participant.vars['data'] = sorted(x2)

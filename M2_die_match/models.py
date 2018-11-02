@@ -37,8 +37,8 @@ class Subsession(BaseSubsession):
             print("x1: ", x1)
             index = 0
             while index < len(x1):
-                groups[int(index/36)].append(sorted([x1[index], x1[index+1], x1[index+2], x1[index+3]]))
-                index += 3
+                groups[int(index/48)].append(sorted([x1[index], x1[index+1], x1[index+2], x1[index+3]]))
+                index += 4
 
             for p in self.get_players():
                 p.participant.vars['data'] = sorted(x1)

@@ -76,7 +76,7 @@ SESSION_CONFIGS = [
     {
         'name': 'M23',
         'display_name': "M23_test",
-        'num_demo_participants': 3,
+        'num_demo_participants': 4,
         'app_sequence': ['M2_die_match', 'M3_die_match_progressive'],
     }
 

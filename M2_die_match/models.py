@@ -15,14 +15,11 @@ match with previous 3 players and multiply 150 ECUs with the outcome
 
 class Constants(BaseConstants):
     name_in_url = 'M3_die_match_progressive'
-    players_per_group = 3
+    players_per_group = 4
     num_rounds = 10
     thrown = [1,2,3,4,5,6]
     reward = [c(100),c(200),c(300),c(400),c(500),c(600)]
-    file_location1 = "_static/data/170711_1143.xlsx"
-    file_location2 = "_static/data/170711_1334.xlsx"
-    file_location3 = "_static/data/170908_1146.xlsx"
-    file_location4 = "_static/data/171006_0927.xlsx"
+    file_location1 = "_static/data/OldData_tax.xlsx"
 
     prob = 0
 
@@ -31,40 +28,16 @@ class Subsession(BaseSubsession):
         self.group_randomly()
         if self.round_number == 1:
             workbook1 = xlrd.open_workbook(Constants.file_location1)
-            workbook2 = xlrd.open_workbook(Constants.file_location2)
-            workbook3 = xlrd.open_workbook(Constants.file_location3)
-            workbook4 = xlrd.open_workbook(Constants.file_location4)
-            sheet1 = workbook1.sheet_by_name('170711_1143')
-            sheet2 = workbook2.sheet_by_name('170711_1334')
-            sheet3 = workbook3.sheet_by_name('170908_1146')
-            sheet4 = workbook4.sheet_by_name('171006_0927')
+            sheet1 = workbook1.sheet_by_name('Module2')
             x1 = []
-            x2 = []
-            x3 = []
-            x4 = []
             groups = [[], [], [], [], [], [], [], [], [], []]
-            for value in sheet1.col_values(7):
+            for value in sheet1.col_values(9):
                 if isinstance(value, float):
                     x1.append(int(value))
-            for value in sheet2.col_values(7):
-                if isinstance(value, float):
-                    x2.append(int(value))
-            for value in sheet3.col_values(7):
-                if isinstance(value, float):
-                    x3.append(int(value))
-            for value in sheet4.col_values(7):
-                if isinstance(value, float):
-                    x4.append(int(value))
             print("x1: ", x1)
             index = 0
             while index < len(x1):
-                groups[int(index/24)].append(sorted([x1[index], x1[index+1], x1[index+2]]))
-                groups[int(index/24)].append(sorted([x2[index], x2[index + 1], x2[index + 2]]))
-                groups[int(index/24)].append(sorted([x4[index], x4[index + 1], x4[index + 2]]))
-                index += 3
-            index = 0
-            while index < len(x4):
-                groups[int(index/36)].append(sorted([x3[index], x3[index+1], x3[index+2]]))
+                groups[int(index/36)].append(sorted([x1[index], x1[index+1], x1[index+2], x1[index+3]]))
                 index += 3
 
             for p in self.get_players():
@@ -88,10 +61,12 @@ class Group(BaseGroup):
             p.payoff = 0
         dice_sort = [[p, p.real_die_value] for p in self.get_players()]
         dice_sort = sorted(dice_sort, key=lambda x:x[1])
-        player_sorted = [0,0,0]
+        player_sorted = [0,0,0,0]
         p1_index = 0
         p2_index = 1
         p3_index = 2
+        p4_index = 3
+
         if dice_sort[0][1] == dice_sort[1][1] and random.randint(0,1): # flip with p2
             temp = p1_index
             p1_index = p2_index
@@ -100,21 +75,36 @@ class Group(BaseGroup):
             temp = p1_index
             p1_index = p3_index
             p3_index = temp
-        if dice_sort[1][1] == dice_sort[2][1] and random.randint(0,1):
+        if dice_sort[0][1] == dice_sort[3][1] and random.randint(0,1): # flip with p4
+            temp = p1_index
+            p1_index = p4_index
+            p4_index = temp
+        if dice_sort[1][1] == dice_sort[2][1] and random.randint(0,1): # p2 and p3 flip
             temp = p2_index
             p2_index = p3_index
             p3_index = temp
+        if dice_sort[1][1] == dice_sort[3][1] and random.randint(0,1): # p2 and p4 flip
+            temp = p2_index
+            p2_index = p4_index
+            p4_index = temp
+        if dice_sort[2][1] == dice_sort[3][1] and random.randint(0,1): # p3 and p4 flip
+            temp = p3_index
+            p3_index = p4_index
+            p4_index = temp
+
         player_sorted[p1_index] = dice_sort[0][0]
         player_sorted[p2_index] = dice_sort[1][0]
         player_sorted[p3_index] = dice_sort[2][0]
+        player_sorted[p4_index] = dice_sort[3][0]
 
         round_groups = player_sorted[0].participant.vars['groups'][self.round_number-1]
         cur_group = random.sample(round_groups, 1)[0]
 
         # set matched level & matched payoff
-        player_sorted[0].matched_level = '3rd'  # low
-        player_sorted[1].matched_level = '2nd'  # medium
-        player_sorted[2].matched_level = '1st'  # high
+        player_sorted[0].matched_level = '4th'
+        player_sorted[1].matched_level = '3rd'
+        player_sorted[2].matched_level = '2nd'
+        player_sorted[3].matched_level = '1st'
 
         for i in range(0,Constants.players_per_group):
             cur_player = player_sorted[i]

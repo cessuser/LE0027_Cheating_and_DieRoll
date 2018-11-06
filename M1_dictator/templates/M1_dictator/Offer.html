@@ -6,12 +6,16 @@
 {% endblock %}
 
 {% block content %}
-If you are Player 1, how much of your {{Constants.endowment}} will you
+If you are Player 1, how much of your {{Constants.endowment}} ECUs will you
 share with Player 2?
 
 <br>
 <br>
-    {% formfield group.kept label=""%}
+<table>
+    <th>{{ form.kept }}</th>
+    <th>ECUs</th>
+</table>
+<br>
     {% next_button %}
 
 {% endblock %}

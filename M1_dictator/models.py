@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     instructions_template = 'M1_dictator/Instructions.html'
 
     # Initial amount allocated to the dictator
-    endowment = c(1000)
+    endowment = 1000
 
 
 class Subsession(BaseSubsession):
@@ -32,7 +32,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    kept = models.CurrencyField(min=0, max=Constants.endowment, label='decision')
+    kept = models.IntegerField(min=0, max=Constants.endowment, label='decision')
 
     test = models.IntegerField(widget=widgets.TextInput )
     def set_payoffs(self):

@@ -32,7 +32,8 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    kept = models.IntegerField(min=0, max=Constants.endowment, label='decision')
+    kept = models.IntegerField(min=0, max=Constants.endowment,
+                               label='decision')
 
     test = models.IntegerField(widget=widgets.TextInput )
     def set_payoffs(self):

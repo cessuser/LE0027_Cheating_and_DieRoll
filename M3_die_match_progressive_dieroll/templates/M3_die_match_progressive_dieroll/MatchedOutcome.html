@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Module 3: Matched Outcome
+{% endblock %}
+
+{% block content %}
+<p>
+    You are the {{ player.matched_level }} place in your group.
+    Your matched payoff is  {{ player.matched_payoff }} ECUs.
+</p>
+    {% next_button %}
+{% endblock %}
+
+

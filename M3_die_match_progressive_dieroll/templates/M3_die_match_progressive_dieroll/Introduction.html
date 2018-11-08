@@ -1,0 +1,75 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Introduction of Module 3
+{% endblock %}
+
+{% block content %}
+<p>
+    This Module consists of 10 rounds. At the beginning of each round participants are randomly assigned to groups of
+    three. You won’t know the identity of the other group members. Groups are randomly re-assigned before each round.
+</p>
+<p>
+    Each round contains 2 parts. FIRST, your group will be randomly matched to a group in a previous experiment we
+    conducted. The three participants in the matched group generated High, Medium and Low Outcomes (represented by some
+    whole numbers) in their experiment.
+</p>
+<p>
+    Then each person in the group will roll a virtual die on the computer screen. The person who rolls the largest number
+    will receive the High Outcome from the matched group; the person who rolls the medium number will receive the Medium
+    Outcome; the person who rolls the smallest number will receive the Low Outcome. Ties are broken by flipping a virtual
+    fair coin. Your Matched Income is <strong>200 ECUs </strong>times the Outcome if you got the High Outcome, <strong>150 ECUs</strong> times the Outcome
+    if you got the Medium Outcome, and <strong> 100 ECUs </strong>times the Outcome if you got the Low Outcome.
+
+</p>
+<p>
+    After you roll the virtual die but before the results are announced, you will predict your position among the 3 members
+    of your group: whether you are in the 1st, the 2nd or the 3rd place. Correct prediction will be rewarded <strong>100 ECUs</strong>.
+    This is your Round Prediction Income.
+</p>
+<p>
+    Before the first round of this Module, we will also ask you to predict your total Matched Income from all rounds of
+    this Module: whether you will be in the top third, middle third or bottom third. Correct prediction will be rewarded
+    <storng>100 ECUs</storng>. This is your Module Prediction Income.
+</p>
+<p>
+    In the SECOND part, you will earn a small additional payoff. This payoff may not be the same for every participant.
+    You determine your payoff by throwing a die twice when you are asked to. Your first throw decides how much you earn.
+    This is called your Dice Income. Payoffs are on the following chart. You can use this chart for your reference.
+    The second throw only serves to make sure that the die is working properly. You may, of course, throw the die more
+    than twice. <u>However, ONLY the first throw counts.</u>
+</p>
+<br>
+
+<table border="1">
+  <tr>
+    <th>Number Thrown</th>
+      {% for number in Constants.thrown %}
+        <th>&nbsp&nbsp&nbsp&nbsp{{number}}&nbsp&nbsp&nbsp&nbsp</th>
+      {% endfor %}
+  </tr>
+  <tr>
+    <td>Resulting Payoff</td>
+      {% for reward in Constants.reward %}
+        <td>&nbsp&nbsp&nbsp&nbsp{{reward}}ECUs&nbsp</td>
+      {% endfor %}
+  </tr>
+</table>
+<br>
+
+<p>
+    Your profits for each round in this Module are calculated in the following manner:
+    <br>
+    <strong>
+        Profit = Matched Income + Module Prediction Income + Round Prediction Income + Dice Income
+    </strong>
+</p>
+<p>
+    Finally, one round in this Module will be chosen at random, and your earnings for this Module will be based on your
+    profits of that round at the exchange rate <strong>500 ECUs = 1 £</strong>.
+</p>
+
+    {% next_button %}
+
+{% endblock %}

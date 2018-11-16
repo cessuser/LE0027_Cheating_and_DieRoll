@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Module 2: Matched Outcome
+{% endblock %}
+
+{% block content %}
+<p>
+    Your Preliminary Gains is  {{ player.matched_payoff }} ECUs.
+    <br>
+    The tax rate on your declared gains is 10%. There is 0% probability that your declared gains will be verified.
+    <br>
+    Please declare your payoff
+    <br>
+<table>
+    <th>{{ form.declare_gain }} </th>
+    <th>ECUs</th>
+</table>
+</p>
+    {% next_button %}
+{% endblock %}
+
+

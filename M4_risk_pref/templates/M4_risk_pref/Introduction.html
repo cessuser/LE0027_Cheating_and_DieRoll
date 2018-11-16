@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Module 4 Introduction
+{% endblock %}
+
+{% block content %}
+<div class="card border-dark mb-3">
+    <div class="card-body text-dark">
+        <div class="card-text">
+            <ol type="a" class="list-group list-group-flush">
+                <li class="list-group-item">
+                    You will be making choices between two lotteries. For example, this could be what you will face.
+                </li>
+                <li class="list-group-item">
+                    <table>
+                        <th>Option A: 10% chance of £2.00 and 90% chance of £1.60</th>
+                        <th>Option B: 10% chance of £3.85 and 90% chance of £0.10</th>
+                    </table>
+                </li>
+                <li class="list-group-item">
+                    For these lotteries, the monetary prizes are determined by the computer randomly throwing a virtual 10-sided die, where 1,2,3,4,5,6,7,8,9,10 will come up with equal chance.
+                </li>
+                <li class="list-group-item">
+                    In the example, Option A has a 10% chance of paying £2.00, and 90% chance of paying £1.60. This means, if the computer gets 1 from throwing the 10-sided die, then you will get £2.00, otherwise you will get £1.60.
+                </li>
+                 <li class="list-group-item">
+                     You will make decisions on a table with 11 pairs of such options. Finally, to determine your Module 4 payoff, one row will be randomly selected. And your payoff will be determined by your choice in that row.
+                </li>
+            </ol>
+
+
+        </div>
+    </div>
+</div>
+{% next_button %}
+{% endblock %}

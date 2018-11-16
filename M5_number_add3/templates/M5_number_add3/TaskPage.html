@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block content %}
+
+    <table class="table">
+            <tr align="center">{{ shown_num1 }} + {{ shown_num2}} = ?</tr>
+            <tr>{% formfield player.answer %}</tr>
+    </table>
+
+    {% next_button %}
+
+{% endblock %}

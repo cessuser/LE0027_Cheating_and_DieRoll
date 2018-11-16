@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% block title %}
+    Module 1 -- Release of the die
+{% endblock %}
+
+{% block content %}
+    <div class="demo">
+        <div class="wrap">
+            <div id="dice" class="dice dice_t"></div>
+        </div>
+        <p id="result">Please roll the die on your table!</p>
+    </div>
+    {% formfield player.dice_value with label="Please enter the first number you got" %}
+
+
+    <input type="hidden" name="virtual_dice" id="id_virtual_dice"  >
+
+    {% next_button %}
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .wrap {
+            width: 90px;
+            height: 90px;
+            margin: 120px auto 30px auto;
+            position: relative
+        }
+
+        .dice {
+            width: 90px;
+            height: 90px;
+            background: url({% static "die_game/dice.png" %}) no-repeat;
+        }
+
+        .dice_t {
+            background-position: -5px -651px
+        }
+         p#result {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+
+    </style>
+{% endblock %}

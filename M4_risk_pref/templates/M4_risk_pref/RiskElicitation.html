@@ -1,0 +1,319 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% block title %}
+    Module 4 Decision
+{% endblock %}
+
+{% block content %}
+<div class="card border-dark mb-3">
+    <div class="card-body text-dark">
+        <div class="card-text">
+            <ol type="a" class="list-group list-group-flush">
+                <li class="list-group-item">
+                    In the first row, you probably prefer Option A, because it gives you £1.60 for sure, but Option B only gives you £0.10 for sure.
+                </li>
+                <li class="list-group-item">
+                    In the last row, you probably prefer Option B, because it gives you £3.85 for sure, but Option A only gives you £2.00 for sure.
+                </li>
+                 <li class="list-group-item">
+                    Therefore, on the table below, please choose at which row you would like to switch from preferring Option A to preferring Option B.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+Please make your selections between Option A and <br> Option B in the row, and <br> adjust your selections until you are satisfied.
+<br><br >
+<table class="table1 table table-striped table-hover table-bordered text-center">
+    <thead>
+    <tr>
+        <th></th>
+        <th >Option A</th>
+        <th>Option B</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o1A" name="option1" value="A" /></label></th>
+        <th>0% chance for £2 and <br>100% chance for £1.6</th>
+        <th>0% chance for £3.85 and <br> 100% chance for £0.1</th>
+        <th><label><input type="radio" id="o1B" name="option1" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o2A" name="option2" value="A" /></label></th>
+        <th>10% chance for £2 and <br> 90% chance for £1.6</th>
+        <th>10% chance for £3.85 and <br> 90% chance for £0.1</th>
+        <th><label><input type="radio" id="o2B" name="option2" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o3A" name="option3" value="A" /></label></th>
+        <th>20% chance for £2 and <br> 80% chance for £1.6</th>
+        <th>20% chance for £3.85 and <br> 80% chance for £0.1</th>
+        <th><label><input type="radio" id="o3B" name="option3" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o4A" name="option4" value="A" /></label></th>
+        <th>30% chance for £2 and <br> 70% chance for £1.6</th>
+        <th>30% chance for £3.85 and <br> 70% chance for £0.1</th>
+        <th><label><input type="radio" id="o4B" name="option4" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o5A" name="option5" value="A" /></label></th>
+        <th>40% chance for £2 and <br> 60% chance for £1.6</th>
+        <th>40% chance for £3.85 and <br> 60% chance for £0.1</th>
+        <th><label><input type="radio" id="o5B" name="option5" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o6A" name="option6" value="A" /></label></th>
+        <th>50% chance for £2 and <br> 50% chance for £1.6</th>
+        <th>50% chance for £3.85 and <br> 50% chance for £0.1</th>
+        <th><label><input type="radio" id="o6B" name="option6" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o7A" name="option7" value="A" /></label></th>
+        <th>60% chance for £2 and <br> 40% chance for £1.6</th>
+        <th>60% chance for £3.85 and <br> 40% chance for £0.1</th>
+        <th><label><input type="radio" id="o7B" name="option7" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o8A" name="option8" value="A" /></label></th>
+        <th>70% chance for £2 and <br> 30% chance for £1.6</th>
+        <th>70% chance for £3.85 and <br> 30% chance for £0.1</th>
+        <th><label><input type="radio" id="o8B" name="option8" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o9A" name="option9" value="A" /></label></th>
+        <th>80% chance for £2 and <br> 20% chance for £1.6</th>
+        <th>80% chance for £3.85 and <br> 20% chance for £0.1</th>
+        <th><label><input type="radio" id="o9B" name="option9" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o10A" name="option10" value="A" /></label></th>
+        <th>90% chance for £2 and <br> 10% chance for £1.6</th>
+        <th>90% chance for £3.85 and <br> 10% chance for £0.1</th>
+        <th><label><input type="radio" id="o10B" name="option10" value="B" /></label></th>
+    </tr>
+    <tr>
+        <th><label><input type="radio" id="o11A" name="option11" value="A" /></label></th>
+        <th>100% chance for £2 and <br> 0% chance for £1.6</th>
+        <th>100% chance for £3.85 and <br> 0% chance for £0.1</th>
+        <th><label><input type="radio" id="o11B" name="option11" value="B" /></label></th>
+    </tr>
+    </tbody>
+</table>
+  
+<head>
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var select_B = function() {
+                   $("#o1B").attr('checked', true);
+                   $("#o2B").prop("checked", true);
+                   $("#o3B").prop("checked", true);
+                   $("#o4B").prop("checked", true);
+                   $("#o5B").prop("checked", true);
+                   $("#o6B").prop("checked", true);
+                   $("#o7B").prop("checked", true);
+                   $("#o8B").prop("checked", true);
+                   $("#o9B").prop("checked", true);
+                   $("#o10B").prop("checked", true);
+                   $("#o11B").prop("checked", true);
+                 };
+
+                $('input:radio[name="option1"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o2B").prop("checked", true);
+                        $("#o3B").prop("checked", true);
+                        $("#o4B").prop("checked", true);
+                        $("#o5B").prop("checked", true);
+                        $("#o6B").prop("checked", true);
+                        $("#o7B").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B()
+                    }
+                });
+                $('input:radio[name="option2"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o3B").prop("checked", true);
+                        $("#o4B").prop("checked", true);
+                        $("#o5B").prop("checked", true);
+                        $("#o6B").prop("checked", true);
+                        $("#o7B").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B()
+                    }
+                });
+                $('input:radio[name="option3"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o4B").prop("checked", true);
+                        $("#o5B").prop("checked", true);
+                        $("#o6B").prop("checked", true);
+                        $("#o7B").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option4"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o5B").prop("checked", true);
+                        $("#o6B").prop("checked", true);
+                        $("#o7B").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option5"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o6B").prop("checked", true);
+                        $("#o7B").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option6"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o5A").prop("checked", true);
+                        $("#o7B").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option7"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o5A").prop("checked", true);
+                        $("#o6A").prop("checked", true);
+                        $("#o8B").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option8"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o5A").prop("checked", true);
+                        $("#o6A").prop("checked", true);
+                        $("#o7A").prop("checked", true);
+                        $("#o9B").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option9"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o5A").prop("checked", true);
+                        $("#o6A").prop("checked", true);
+                        $("#o7A").prop("checked", true);
+                        $("#o8A").prop("checked", true);
+                        $("#o10B").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option10"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o5A").prop("checked", true);
+                        $("#o6A").prop("checked", true);
+                        $("#o7A").prop("checked", true);
+                        $("#o8A").prop("checked", true);
+                        $("#o9A").prop("checked", true);
+                        $("#o11B").prop("checked", true);
+                    }
+                });
+                $('input:radio[name="option11"]').change(function(){
+                    if ($(this).is(':checked') && $(this).val() == 'B') {
+                        select_B();
+                    }
+                    if ($(this).is(':checked') && $(this).val() == 'A') {
+                        $("#o1A").prop("checked", true);
+                        $("#o2A").prop("checked", true);
+                        $("#o3A").prop("checked", true);
+                        $("#o4A").prop("checked", true);
+                        $("#o5A").prop("checked", true);
+                        $("#o6A").prop("checked", true);
+                        $("#o7A").prop("checked", true);
+                        $("#o8A").prop("checked", true);
+                        $("#o9A").prop("checked", true);
+                        $("#o10A").prop("checked", true);
+                    }
+                });
+            });
+        </script>
+    </head>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">Confirm</button>
+{% endblock %}

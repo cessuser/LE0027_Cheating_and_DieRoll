@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Module 1 - Decision
+{% endblock %}
+
+{% block content %}
+If you are Player 1, how much of your {{Constants.endowment}} ECUs will you
+share with Player 2?
+
+<br>
+<br>
+<table>
+    <th>{{ form.kept }}</th>
+    <th>ECUs</th>
+</table>
+<br>
+    {% next_button %}
+
+{% endblock %}

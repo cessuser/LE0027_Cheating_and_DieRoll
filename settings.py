@@ -6,12 +6,9 @@ from os import environ
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = {
-
     'participation_fee': 0.00,
     'doc': "",
-
 }
-
 SESSION_CONFIGS = [
     {
         'name': 'cheating_entitlement_ret',
@@ -44,7 +41,7 @@ SESSION_CONFIGS = [
                          'M5_number_add4',
                          'M5_number_add5',
                          'LastModel_RET'],
-    },
+    }
 ]
 
 # ISO-639 code

@@ -68,7 +68,6 @@ class Group(BaseGroup):
         p2_index = 1
         p3_index = 2
         p4_index = 3
-
         print("dice sort ", dice_sort)
 
         if dice_sort[0][1] == dice_sort[1][1] and random.randint(0, 1):  # flip with p2

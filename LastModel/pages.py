@@ -15,7 +15,6 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     def vars_for_template(self):
-
         return {
             'pay1': self.player.participant.vars['M1_payoff'],
             'pay2': self.player.participant.vars['m2_payoff'],

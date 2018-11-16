@@ -3,7 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 import random
-
+from django import forms
 author = 'Danlin Chen'
 
 doc = """

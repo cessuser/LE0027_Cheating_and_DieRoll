@@ -1,7 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
-
+from . import models
 
 class MyPage(Page):
     pass
@@ -25,9 +25,20 @@ class Results(Page):
             'total': self.player.final_ECUs
         }
 
+class Survey(Page):
+    form_model = models.Player
+    form_fields = ['it1', 'it2', 'it3', 'it4', 'it5', 'it6', 'it7', 'it8', 'it9', 'it10']
+
+
+class Survey1(Page):
+    form_model = models.Player
+    form_fields = ['understanding',
+                   "understanding_stage", "specify_understanding", "gender", "age", 'student', 'study', 'major']
 
 
 page_sequence = [
     ResultsWaitPage,
+    Survey,
+    Survey1,
     Results
 ]

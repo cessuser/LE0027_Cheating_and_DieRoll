@@ -24,7 +24,7 @@ SESSION_CONFIGS = [
                          'M5_number_add3',
                          'M5_number_add4',
                          'M5_number_add5',
-                         'LastModel'],
+                         'LastModel_RET'],
         
     },
      {'name': 'cheating_entitlement_dieroll',
@@ -40,7 +40,7 @@ SESSION_CONFIGS = [
                          'M5_number_add3',
                          'M5_number_add4',
                          'M5_number_add5',
-                         'LastModel_RET'],
+                         'LastModel'],
     }
 ]
 

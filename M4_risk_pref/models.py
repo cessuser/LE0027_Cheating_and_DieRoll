@@ -51,12 +51,14 @@ class Player(BasePlayer):
         probB = 100 - probA
         probA = probA / 100.0
         probB = probB / 100.0
+        temp_pay = 0
         if choices[self.selected_choice-1] == 'A':
-            self.payoff = numpy.random.choice(numpy.array([1.6, 2]), p=[probA, probB]) / self.session.config['real_world_currency_per_point']
+            temp_pay = numpy.random.choice(numpy.array([1.6, 2]), p=[probA, probB]) / self.session.config['real_world_currency_per_point']
         if choices[self.selected_choice-1] == 'B':
-            self.payoff = numpy.random.choice(numpy.array([0.1, 3.85]), p=[probA, probB]) / self.session.config['real_world_currency_per_point']
-
+            temp_pay = numpy.random.choice(numpy.array([0.1, 3.85]), p=[probA, probB]) / self.session.config['real_world_currency_per_point']
+        self.payoff = temp_pay
         self.participant.vars['M4_payoff'] = self.payoff
+        self.participant.vars['M4_payoff_real_currency'] = self.payoff * self.session.config['real_world_currency_per_point']
 
 
 

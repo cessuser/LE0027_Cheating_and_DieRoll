@@ -66,8 +66,17 @@ class MatchedOutcome(Page):
     def before_next_page(self):
         self.participant.vars['all_declare_gain'].append(self.player.declare_gain)
 
+class continueWaitPage(WaitPage):
+    wait_for_all_groups = True
+
+    def after_all_players_arrive(self):
+        pass
+
+    def is_displayed(self):
+        return self.round_number == 1
 
 page_sequence = [
+    continueWaitPage,
     Introduction,
     DiceRolling,
     DiceRolling2,

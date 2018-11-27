@@ -20,7 +20,7 @@ class Results(Page):
             'pay1': self.player.participant.vars['M1_payoff'],
             'pay2': self.player.participant.vars['m2_payoff'],
             'pay3': self.player.participant.vars['m3_payoff'],
-            'pay4': self.player.participant.vars['M4_payoff'],
+            'pay4': self.player.participant.vars['M4_payoff_real_currency'],
             'pay5': self.player.participant.vars['M5_payoff'],
             'total': self.player.final_ECUs
         }

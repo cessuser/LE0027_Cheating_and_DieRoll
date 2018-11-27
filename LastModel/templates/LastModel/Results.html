@@ -2,17 +2,18 @@
 {% load otree static %}
 
 {% block title %}
-    Result of Number Adding Model
+    Payment Summary
 {% endblock %}
 
 {% block content %}
 <p>
-    In Module 1, your payoff is {{ pay1 }} ECUs.<br>
-    In Module 2, your payoff is {{ pay2 }} ECUs.<br>
-    In Module 3, your payoff is {{ pay3 }} ECUs.<br>
-    In Module 4, your payoff is {{ pay4 }} ECUs.<br>
-    In Module 5, your payoff is {{ pay5 }} ECUs.<br>
-    Your total payoff is {{ total }}
+    In Module 1, your payoff is {{ pay1 }}.<br>
+    In Module 2, your payoff is {{ pay2 }}.<br>
+    In Module 3, your payoff is {{ pay3 }}.<br>
+    In Module 4, your payoff is £{{ pay4 }}.<br>
+    In Module 5, your payoff is {{ pay5 }}.<br>
+    Your total payoff is {{ total }}.<br>
+    Your total payoff is converted to £{{ total_real }}.
 </p>
     {% next_button %}
 {% endblock %}

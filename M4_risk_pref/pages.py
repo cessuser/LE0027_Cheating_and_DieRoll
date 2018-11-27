@@ -15,8 +15,17 @@ class RiskElicitation(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
+class continueWaitPage(WaitPage):
+    wait_for_all_groups = True
+
+    def after_all_players_arrive(self):
+        pass
+
+    def is_displayed(self):
+        return self.round_number == 1
 
 page_sequence = [
+    continueWaitPage,
     Introduction,
     RiskElicitation,
 ]

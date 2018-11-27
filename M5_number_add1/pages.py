@@ -37,6 +37,8 @@ class TaskPage(Page):
         self.player.participant.vars['remaining_time'] = self.player.participant.vars['remaining_time'] - spent
         if self.timeout_happened:
             self.player.participant.vars['remaining_time'] = 0
+        if self.round_number == Constants.num_rounds:
+            self.player.n_correct = self.player.participant.vars['n_correct1_M5']
 
 
 class ModelPred(Page):
@@ -78,9 +80,17 @@ class Results(Page):
         }
 
 
+class continueWaitPage(WaitPage):
+    wait_for_all_groups = True
 
+    def after_all_players_arrive(self):
+        pass
+
+    def is_displayed(self):
+        return self.round_number == 1
 
 page_sequence = [
+    continueWaitPage,
     Introduction,
     ModelPred,
     RoundPred,

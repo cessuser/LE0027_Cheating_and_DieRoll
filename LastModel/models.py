@@ -14,6 +14,8 @@ OPTIONS = (
     ("Module1", "module 1"),
     ("Module 2", "module 2"),
     ("Module 3", "module 3"),
+    ("Module 4", "module 4"),
+    ("Module 5", "module 5")
 )
 OPTIONS1 = (
     ("No Major or Pre-College","No Major or Pre-College"),
@@ -150,9 +152,10 @@ class Player(BasePlayer):
                                         widget=widgets.RadioSelectHorizontal,
                                         choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     understanding_stage = models.StringField(label="",
-                                             widget=forms.CheckboxSelectMultiple(choices=OPTIONS), )
+                                             widget=forms.CheckboxSelectMultiple(choices=OPTIONS),
+                                             blank=True)
     specify_understanding = models.StringField(
         label='Please specify the problem(s) you had in understanding the experimental instructions.',
-        widget=widgets.TextInput)
+        widget=widgets.TextInput, blank=True)
     major = models.StringField(label="",
                                widget=forms.CheckboxSelectMultiple(choices=OPTIONS1))

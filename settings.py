@@ -41,7 +41,16 @@ SESSION_CONFIGS = [
                          'M5_number_add4',
                          'M5_number_add5',
                          'LastModel'],
+    },
+    {
+        'name': 'number_demo',
+        'display_name': 'number_add',
+        'app_sequence': ['M4_risk_pref'],
+        'num_demo_participants': 6,
+        'real_world_currency_per_point': 1
+
     }
+
 ]
 
 # ISO-639 code

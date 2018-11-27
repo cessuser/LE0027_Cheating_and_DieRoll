@@ -72,6 +72,7 @@ class Results(Page):
 
     def vars_for_template(self):
         self.group.set_payoff()
+        self.player.n_correct = self.player.participant.vars['n_correct3_M5']
         self.player.modelPred = self.player.participant.vars['M5_modelPred']
         return{
             'n_correct': self.player.participant.vars['n_correct3_M5']

@@ -84,8 +84,8 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 
 # Consider '', None, and '0' to be empty/false
-# DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
-DEBUG = 1
+DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
+# DEBUG = 1
 DEMO_PAGE_INTRO_HTML = """ """
 
 # don't share this with anybody.

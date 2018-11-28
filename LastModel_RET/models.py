@@ -71,7 +71,7 @@ class Group(BaseGroup):
                        + p.participant.vars['M4_payoff'] + p.participant.vars['M5_payoff']
 
 class Player(BasePlayer):
-    final_ECUs = models.IntegerField()
+    final_ECUs = models.FloatField()
     payoff = models.CurrencyField()
 
     chosen = models.IntegerField()

@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %}
+    Model 5 -- Round Predict
+{% endblock %}
+{% block content %}
+<p>
+    Please predict your position among the 3 members of your group: whether you are in the 1st, the 2nd or the 3rd place.
+    Correct prediction will be rewarded <strong>100 ECUs</strong>.
+</p>
+{% formfield player.roundPred with label = 'Please predict:'%}
+    {% next_button %}
+{% endblock %}
+
+

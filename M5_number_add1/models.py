@@ -13,7 +13,7 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'M5_number_add1'
-    players_per_group = 2
+    players_per_group = 3
     num_rounds = 30
 
     nums1 = [65, 16, 37, 59, 76, 48, 12, 60, 73, 96, 29, 89, 31, 29, 31, 95, 71, 46, 61, 20, 15, 37, 68, 67, 52, 91, 74,
@@ -43,8 +43,8 @@ class Group(BaseGroup):
         for i in range(0, Constants.players_per_group):
             cur_player = player_sorted[i][0]
             cur_player.payoff = 0
-            cur_player.rank = 3 - i
-            if cur_player.participant.vars['roundPred'] == 3 - i:
+            cur_player.rank = Constants.players_per_group - i
+            if cur_player.participant.vars['roundPred'] == Constants.players_per_group - i:
                 print("enter player: ", cur_player)
                 cur_player.payoff = 100
             cur_player.payoff += c(player_sorted[i][1] * 150)
@@ -56,7 +56,7 @@ class Player(BasePlayer):
     answer = models.IntegerField() # player answer
     correct = models.IntegerField() # if correct
     n_correct = models.IntegerField() # number of correct
-    modelPred = models.IntegerField(choices=[(1, 'Top'), (2, 'Middle'), (3, 'Bottom')], widget=widgets.RadioSelect)
+    modelPred = models.IntegerField(choices=[(1, '1st place'), (2, '2nd place'), (3, 'Bottom')], widget=widgets.RadioSelect)
     roundPred = models.IntegerField(choices=[1, 2, 3], widget=widgets.RadioSelect)
 
     rank = models.IntegerField()

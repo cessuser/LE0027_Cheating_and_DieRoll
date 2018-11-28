@@ -43,8 +43,8 @@ class Group(BaseGroup):
         for i in range(0, Constants.players_per_group):
             cur_player = player_sorted[i][0]
             cur_player.payoff = 0
-            cur_player.rank = 3 - i
-            if cur_player.participant.vars['roundPred'] == 3 - i:
+            cur_player.rank = Constants.players_per_group - i
+            if cur_player.participant.vars['roundPred'] == Constants.players_per_group - i:
                 print("enter player: ", cur_player)
                 cur_player.payoff = 100
             cur_player.payoff += c(player_sorted[i][1] * 150)

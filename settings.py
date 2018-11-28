@@ -19,13 +19,13 @@ SESSION_CONFIGS = [
                          'M2_die_match_RET',
                          'M3_die_match_progressive_RET',
                          'M4_risk_pref',
-                         'M5_number_add1',
-                         'M5_number_add2',
-                         'M5_number_add3',
-                         'M5_number_add4',
-                         'M5_number_add5',
+                         'M5_number_add1_RET',
+                         'M5_number_add2_RET',
+                         'M5_number_add3_RET',
+                         'M5_number_add4_RET',
+                         'M5_number_add5_RET',
                          'LastModel_RET'],
-        
+
     },
      {'name': 'cheating_entitlement_dieroll',
         'display_name': "Cheating_Entitlement_DieRoll",
@@ -42,11 +42,12 @@ SESSION_CONFIGS = [
                          'M5_number_add5',
                          'LastModel'],
     },
+
     # {
     #     'name': 'number_demo',
     #     'display_name': 'number_add',
-    #     'app_sequence': ['M5_number_add1'],
-    #     'num_demo_participants': 6,
+    #     'app_sequence': ['M5_number_add5_RET'],
+    #     'num_demo_participants': 4,
     #     'real_world_currency_per_point': 1
     #
     # }

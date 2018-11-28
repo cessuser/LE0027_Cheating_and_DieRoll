@@ -67,8 +67,8 @@ class Group(BaseGroup):
     def set_final_payoff(self):
         for p in self.get_players():
             p.final_ECUs = 0
-            p.final_ECUs = p.participant.vars['M1_payoff'] + p.participant.vars['m2_payoff'] + p.participant.vars['m3_payoff'] \
-                       + p.participant.vars['M4_payoff'] + p.participant.vars['M5_payoff']
+            p.final_ECUs = float(p.participant.vars['M1_payoff'] + p.participant.vars['m2_payoff'] + p.participant.vars['m3_payoff'] \
+                       + p.participant.vars['M4_payoff'] + p.participant.vars['M5_payoff'])
 
 class Player(BasePlayer):
     final_ECUs = models.FloatField()

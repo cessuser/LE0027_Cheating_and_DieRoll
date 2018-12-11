@@ -35,7 +35,6 @@ class Subsession(BaseSubsession):
             for value in sheet1.col_values(9):
                 if isinstance(value, float):
                     x1.append(int(value))
-            print("x1: ", x1)
             index = 0
             while index < len(x1):
                 groups[int(index/48)].append(sorted([x1[index], x1[index+1], x1[index+2], x1[index+3]]))
@@ -114,7 +113,6 @@ class Group(BaseGroup):
 
 
 
-        print([[p, p.payoff, p.real_die_value] for p in player_sorted])
 
 
 
@@ -129,11 +127,9 @@ class Player(BasePlayer):
 
     def roll_die(self):
         self.real_die_value = random.randint(1,6)
-        print(self.real_die_value)
 
     def set_final_payoff(self):
         self.chosen_round = random.randint(1, Constants.num_rounds)
         groupAmount = self.group.set_groupAmount(self.chosen_round)
         self.payoff = c(self.participant.vars['matched_outcomes'][self.chosen_round-1] - self.participant.vars['all_declare_gain'][self.chosen_round-1]*0.1 + groupAmount)
         self.participant.vars['m2_payoff'] = self.payoff
-        print("set final: ", self.matched_level, self.payoff, self.participant.vars['matched_outcomes'] )

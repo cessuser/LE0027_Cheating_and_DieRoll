@@ -51,7 +51,6 @@ class Subsession(BaseSubsession):
             for value in sheet4.col_values(7):
                 if isinstance(value, float):
                     x4.append(int(value))
-            print("x1: ", x1)
             index = 0
             while index < len(x1):
                 groups[int(index/24)].append(sorted([x1[index], x1[index+1], x1[index+2]]))
@@ -106,7 +105,6 @@ class Group(BaseGroup):
 
             cur_player.participant.vars['m2_payoff'] = cur_player.payoff
 
-        print('model pred: ', [[p, p.payoff, p.modelPred_correct] for p in self.get_players()])
 
 
 
@@ -153,7 +151,6 @@ class Group(BaseGroup):
                 cur_player.payoff += 100
                 cur_player.roundPred_correct = True
 
-        print('Round pay:', self.round_number, '', [[p, p.payoff, p.roundPred, p.real_die_value] for p in player_sorted])
 
 
 class Player(BasePlayer):
@@ -171,4 +168,3 @@ class Player(BasePlayer):
 
     def roll_die(self):
         self.real_die_value = random.randint(1,6)
-        print(self.real_die_value)

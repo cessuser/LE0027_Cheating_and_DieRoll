@@ -30,7 +30,6 @@ class Subsession(BaseSubsession):
             workbook1 = xlrd.open_workbook(Constants.file_location1)
             sheet2 = workbook1.sheet_by_name('Module3')
             x2 = []
-            print("x2: ", x2)
             groups = [[], [], [], [], [], [], [], [], [], []]
             for value in sheet2.col_values(9):
                 if isinstance(value, float):
@@ -39,7 +38,6 @@ class Subsession(BaseSubsession):
             while index < len(x2):
                 groups[int(index / 48)].append(sorted([x2[index], x2[index + 1], x2[index + 2], x2[index + 3]]))
                 index += 4
-                print(len(groups))
             for p in self.get_players():
                 p.participant.vars['data'] = sorted(x2)
                 p.participant.vars['groups'] = groups
@@ -54,7 +52,6 @@ class Group(BaseGroup):
 
     def set_groupAmount(self, round):
         tot = sum([p.participant.vars['all_declare_gain'][round-1] for p in self.get_players()])
-        print('set group amount: ', self.get_players())
 
         return tot/Constants.players_per_group
 
@@ -68,7 +65,6 @@ class Group(BaseGroup):
         p2_index = 1
         p3_index = 2
         p4_index = 3
-        print("dice sort ", dice_sort)
 
         if dice_sort[0][1] == dice_sort[1][1] and random.randint(0, 1):  # flip with p2
             temp = p1_index
@@ -114,7 +110,6 @@ class Group(BaseGroup):
             cur_player.matched_payoff = 150 * cur_group[i]
             cur_player.participant.vars['matched_outcomes'].append(player_sorted[0].matched_payoff)
 
-        print([[p, p.payoff, p.real_die_value] for p in player_sorted])
 
 
 
@@ -138,7 +133,6 @@ class Player(BasePlayer):
 
     def roll_die(self):
         self.real_die_value = random.randint(1,6)
-        print(self.real_die_value)
 
     def set_final_payoff(self):
         self.chosen_round = random.randint(1, Constants.num_rounds)
@@ -146,4 +140,3 @@ class Player(BasePlayer):
         self.payoff = c(self.participant.vars['matched_outcomes'][self.chosen_round-1] - self.participant.vars['all_declare_gain'][self.chosen_round-1]*0.1) + groupAmount
         self.participant.vars['chosen_round_m3'] = self.chosen_round
         self.participant.vars['m3_payoff'] = self.payoff
-        print("set final: ", self.matched_payoff, self.payoff, self.participant.vars['matched_outcomes'] )

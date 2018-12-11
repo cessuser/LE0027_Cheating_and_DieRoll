@@ -22,7 +22,6 @@ class TaskPage(Page):
         return self.player.participant.vars['remaining_time'] > 0 and 1 <= self.round_number <= Constants.num_rounds
 
     def get_timeout_seconds(self):
-        print("remain time: ", self.participant.vars['remaining_time'])
         return self.player.participant.vars['remaining_time']
 
     def vars_for_template(self):

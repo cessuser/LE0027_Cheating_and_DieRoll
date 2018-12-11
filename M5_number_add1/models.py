@@ -45,7 +45,6 @@ class Group(BaseGroup):
             cur_player.payoff = 0
             cur_player.rank = Constants.players_per_group - i
             if cur_player.participant.vars['roundPred'] == Constants.players_per_group - i:
-                print("enter player: ", cur_player)
                 cur_player.payoff = 100
             cur_player.payoff += c(player_sorted[i][1] * 150)
             cur_player.participant.vars['M5_round1Pay'] = cur_player.payoff

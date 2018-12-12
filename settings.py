@@ -27,21 +27,6 @@ SESSION_CONFIGS = [
                          'LastModel_RET'],
 
     },
-     {'name': 'cheating_entitlement_dieroll',
-        'display_name': "Cheating_Entitlement_DieRoll",
-        'num_demo_participants': 6,
-        'real_world_currency_per_point': 0.0033,
-        'app_sequence': ['M1_dictator',
-                         'M2_die_match_dieroll',
-                         'M3_die_match_progressive_dieroll',
-                         'M4_risk_pref',
-                         'M5_number_add1',
-                         'M5_number_add2',
-                         'M5_number_add3',
-                         'M5_number_add4',
-                         'M5_number_add5',
-                         'LastModel'],
-    },
 
     # {
     #     'name': 'number_demo',

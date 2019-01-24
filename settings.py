@@ -48,7 +48,18 @@ REAL_WORLD_CURRENCY_CODE = 'GBP'
 POINTS_CUSTOM_NAME = 'ECUs'
 USE_POINTS = True
 
-ROOMS = []
+
+ROOMS = [
+    {
+        'name': 'le0027_RET',
+        'display_name': 'LE0027_RET for CESS Lab',
+        'participant_label_file': '_rooms/cess_lab.txt',
+    },
+    {
+        'name': 'live_demo',
+        'display_name': 'Room for live demo (no participant labels)',
+    },
+]
 
 
 # AUTH_LEVEL:

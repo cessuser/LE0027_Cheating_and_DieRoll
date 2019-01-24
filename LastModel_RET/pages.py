@@ -22,8 +22,8 @@ class Results(Page):
             'pay3': self.player.participant.vars['m3_payoff'],
             'pay4': self.player.participant.vars['M4_payoff_real_currency'],
             'pay5': self.player.participant.vars['M5_payoff'],
-            'total': int(self.player.final_ECUs),
-            'total_real': int(self.player.final_ECUs) * self.session.config['real_world_currency_per_point']
+            'total': int(self.player.final_pay / self.session.config['real_world_currency_per_point']),
+            'total_real': self.player.final_pay
         }
 
 class Survey(Page):

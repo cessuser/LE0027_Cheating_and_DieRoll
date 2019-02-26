@@ -67,12 +67,12 @@ class Group(BaseGroup):
     def set_final_payoff(self):
         for p in self.get_players():
             p.final_pay = 0
-            p.final_pay = int(p.participant.vars['M1_payoff'] + p.participant.vars['m2_payoff'] + p.participant.vars['m3_payoff'] \
+            p.final_pay = float(p.participant.vars['M1_payoff'] + p.participant.vars['m2_payoff'] + p.participant.vars['m3_payoff'] \
                        + p.participant.vars['M4_payoff'] + p.participant.vars['M5_payoff'])
-            p.final_pay = int(p.final_pay * self.session.config['real_world_currency_per_point'])
+            p.final_pay = round(float(p.final_pay * self.session.config['real_world_currency_per_point']),2)
 
 class Player(BasePlayer):
-    final_pay = models.IntegerField()
+    final_pay = models.FloatField()
     payoff = models.CurrencyField()
 
     chosen = models.IntegerField()

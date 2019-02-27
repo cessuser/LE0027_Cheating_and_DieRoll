@@ -29,6 +29,14 @@ class Results(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
+    def vars_for_template(self):
+        message = 'You are assigned to group A and your choice will be implemented. '
+        if self.player.id_in_group == 2:
+            message = "You are assigned to group B and your choice will not be implemented."
+        return {
+            'message': message
+        }
+
 class Intro(Page):
     def is_displayed(self):
         return self.round_number == 1

@@ -15,11 +15,9 @@ class DiceRolling(Page):
 
 
 class Offer(Page):
-    form_model = 'group'
+    form_model = models.Player
     form_fields = ['kept']
 
-    def is_displayed(self):
-        return self.player.id_in_group == 1
 
 
 class ResultsWaitPage(WaitPage):
@@ -30,10 +28,6 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
-    def vars_for_template(self):
-        return {
-            'offer': Constants.endowment - self.group.kept,
-        }
 
 class Intro(Page):
     def is_displayed(self):
